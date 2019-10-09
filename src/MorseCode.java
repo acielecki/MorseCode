@@ -25,19 +25,15 @@ public class MorseCode {
 	}
 	
 	public static void decode(String input, String output) {
-		String decoded = "";
 		String smallerInput = "";
-		if(input.equals("")) {
+		if(input.length()<1) {
 			System.out.println(output);
 			return;
-		}
+		} 
 		for(int i = 1; i <= input.length(); i++) {
 			smallerInput=input.substring(0, i);
 			if(hm.containsKey(smallerInput)) {
 				decode(input.substring(i), output + hm.get(smallerInput));
-			}
-			else {
-				decode(input.substring(i), output + "");
 			}
 		}
 	}
